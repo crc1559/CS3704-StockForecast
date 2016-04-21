@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AlertEditDlg" widgetVar="AlertEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAlertTitle}">
+            <h:form id="AlertEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{alertController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAlertLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{alertController.selected.id}" title="#{bundle.EditAlertTitle_id}" required="true" requiredMessage="#{bundle.EditAlertRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditAlertLabel_stockName}" for="stockName" />
+                        <p:inputText id="stockName" value="#{alertController.selected.stockName}" title="#{bundle.EditAlertTitle_stockName}" required="true" requiredMessage="#{bundle.EditAlertRequiredMessage_stockName}"/>
+                        <p:outputLabel value="#{bundle.EditAlertLabel_factor}" for="factor" />
+                        <p:inputText id="factor" value="#{alertController.selected.factor}" title="#{bundle.EditAlertTitle_factor}" />
+                        <p:outputLabel value="#{bundle.EditAlertLabel_email}" for="email" />
+                        <p:selectOneMenu id="email" value="#{alertController.selected.email}" required="true" requiredMessage="#{bundle.EditAlertRequiredMessage_email}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="emailItem"
+                                           itemValue="#{emailItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{alertController.update}" value="#{bundle.Save}" update="display,:AlertListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AlertEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AlertEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

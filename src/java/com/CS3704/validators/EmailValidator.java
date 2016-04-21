@@ -1,0 +1,35 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.CS3704.validators;
+
+import javax.faces.application.FacesMessage; 
+import javax.faces.component.UIComponent; 
+import javax.faces.context.FacesContext; 
+import javax.faces.validator.FacesValidator; 
+import javax.faces.validator.Validator;
+import javax.faces.validator.ValidatorException;
+
+@FacesValidator("emailValidator")
+/**
+ *
+ * @author Balci
+ */
+public class EmailValidator implements Validator {
+
+    @Override
+    public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException { // Typecast the password "value" entered by the user to String.
+        String email = (String) value;
+        if (email == null || email.isEmpty()) {
+// Do not take any action.
+// The required="true" in the XHTML file will catch this and produce an error message. 
+            return;
+        }
+        String regex = "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)";
+        if (!email.matches(regex)) {
+            throw new ValidatorException(new FacesMessage("Please Enter a Valid Email Address!"));
+        }
+    }
+}
