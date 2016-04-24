@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+<title>Stock Query</title>
+<link rel="stylesheet" type="text/css" href="styles.css"></link>
+</head>
+<body>
+<div class="wrapper">
+	<div class="container">
+		<h1>Find your stock</h1>             	
+		<form class="form">
+                    <input type="text" name="stockname" placeholder="Stock name" style="float: right"></input>
+                    <h:button id="goquery" value="Go Query"></h:button>
+                    <textarea rows="20" cols="100">
+                        Stock query result output area!
+                    </textarea>
+                    <h:commandButton id="backprofile" action="profile" value="Back my profile"></h:commandButton>
+                </form>    
+	</div>
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>	
+</div>
+</body>
+</html>
