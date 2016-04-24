@@ -5,7 +5,6 @@
  */
 package com.CS3704.entitypackage;
 
-import com.cs3704.stockpredictor.Transaction;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,30 +35,6 @@ public class TransactionTest {
     
     @After
     public void tearDown() {
-    }
-
-    /**
-     * Test of getStock method, of class Transaction.
-     */
-    @Test
-    public void testGetStock() {
-        System.out.println("getStock");
-        Transaction instance = new Transaction();
-        instance.getStock();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setStock method, of class Transaction.
-     */
-    @Test
-    public void testSetStock() {
-        System.out.println("setStock");
-        Transaction instance = new Transaction();
-        instance.setStock();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -153,32 +128,6 @@ public class TransactionTest {
         double expResult = 0.0;
         double result = instance.getStockPrice();
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getLivePrice method, of class Transaction.
-     */
-    @Test
-    public void testGetLivePrice() {
-        System.out.println("getLivePrice");
-        Transaction instance = new Transaction();
-        double expResult = 0.0;
-        double result = instance.getLivePrice();
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of updateStockPrice method, of class Transaction.
-     */
-    @Test
-    public void testUpdateStockPrice() {
-        System.out.println("updateStockPrice");
-        Transaction instance = new Transaction();
-        instance.updateStockPrice();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

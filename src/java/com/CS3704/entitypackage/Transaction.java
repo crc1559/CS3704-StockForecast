@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.cs3704.stockpredictor;
+package com.CS3704.entitypackage;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -56,9 +56,6 @@ public class Transaction implements Serializable {
     private String stockName;
     @Basic(optional = false)
     @NotNull
-    private Stock stock;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "stock_price")
     private double stockPrice;
     @Basic(optional = false)
@@ -76,51 +73,21 @@ public class Transaction implements Serializable {
 
     public Transaction() {
     }
+    
+    public Transaction(Integer id, User email, Integer quantity, String timestamp, String stockName, Double stockPrice) {
+        this.email = email;
+        this.id = id;
+        this.quantity = quantity;
+        this.timestamp = timestamp;
+        this.stockName = stockName;
+        this.stockPrice = stockPrice;
+    }
 
     public Transaction(Integer id) {
         this.id = id;
     }
-    
-    public Transaction(Integer id, String type, String stockName, Integer quantity)
-    {
-        this.id = id;
-        this.type = type;
-        this.stockName = stockName;
-        this.quantity = quantity; 
-        this.stock = getStock();
-        this.timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        this.stockPrice = getLivePrice();
-    }
 
-    public Transaction(Integer id, String type, String stockName, double stockPrice, String timestamp, int quantity) {
-        this.id = id;
-        this.type = type;
-        this.stockName = stockName;
-        this.stockPrice = stockPrice;
-        this.timestamp = timestamp;
-        this.quantity = quantity;
-        this.stock = getStock();
-    }
-    
-    public Stock getStock()
-    {
-        return this.stock; 
-    }
-    
-    public Stock setStock()
-    {
-        Stock temp = YahooFinance.get(this.stockName);
-        if(temp != NULL)
-        {
-            return temp;
-        }
-        //If stock can't be found
-        else
-        {
-            return NULL; 
-        }
-    }
-
+  
     public Integer getId() {
         return id;
     }
@@ -147,15 +114,6 @@ public class Transaction implements Serializable {
 
     public double getStockPrice() {
         return stockPrice;
-    }
-    
-    public double getLivePrice()
-    {
-        return stock.getQuote().getPrice();
-    }
-    
-    public void updateStockPrice() {
-        this.stockPrice = getLivePrice();
     }
 
     public void setStockPrice(double stockPrice) {
