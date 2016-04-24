@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="UTF-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title>Users</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <link rel="stylesheet" type="text/css" href="styles.css"></link>
+    </h:head>
+    <h:body>
+    	<div class="wrapper">    
+	        <div class="container" align="center">
+	            <h:form class="form-signin">
+	                <div align="center">
+	                    <h1>Stock Forecast System</h1>
+	                    <br/>
+	                    <br/>
+                            <h:commandButton id="query" action="stockquery" value="Go Query"></h:commandButton>
+                            <h:button id="history" value="Show Transaction History"></h:button>
+	                    <h:button class="btn btn-lg btn-danger" id="cancel" outcome="index" value="Log out"></h:button>                                  
+	                </div>
+	            </h:form>
+	        </div>
+			<ul class="bg-bubbles">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+		    </ul>	
+        </div>
+    </h:body>
+</html>
