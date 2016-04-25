@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author Cody Cummings
  */
 public class LoginManagerTest {
-    
+
     public LoginManagerTest() {
     }
     
@@ -32,6 +32,7 @@ public class LoginManagerTest {
     
     @Before
     public void setUp() {
+      
     }
     
     @After
@@ -45,11 +46,10 @@ public class LoginManagerTest {
     public void testGetUsername() {
         System.out.println("getUsername");
         LoginManager instance = new LoginManager();
-        String expResult = "";
+        lm1.setUsername("_USERNAME");
+        String expResult = "_USERNAME";
         String result = instance.getUsername();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,11 +58,10 @@ public class LoginManagerTest {
     @Test
     public void testSetUsername() {
         System.out.println("setUsername");
-        String username = "";
+        String username = "_User";
         LoginManager instance = new LoginManager();
         instance.setUsername(username);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(username, instance.getUsername());
     }
 
     /**
@@ -72,11 +71,9 @@ public class LoginManagerTest {
     public void testCreateUser() {
         System.out.println("createUser");
         LoginManager instance = new LoginManager();
-        String expResult = "";
+        String expResult = "CreateAccount";
         String result = instance.createUser();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -86,11 +83,9 @@ public class LoginManagerTest {
     public void testResetPassword() {
         System.out.println("resetPassword");
         LoginManager instance = new LoginManager();
-        String expResult = "";
+        String expResult = "EnterUsername?faces-redirect=true";
         String result = instance.resetPassword();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -100,11 +95,10 @@ public class LoginManagerTest {
     public void testGetPassword() {
         System.out.println("getPassword");
         LoginManager instance = new LoginManager();
-        String expResult = "";
+        String expResult = "aaa";
+        instance.setPassword("aaa");
         String result = instance.getPassword();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,11 +107,10 @@ public class LoginManagerTest {
     @Test
     public void testSetPassword() {
         System.out.println("setPassword");
-        String password = "";
+        String password = "abc";
         LoginManager instance = new LoginManager();
         instance.setPassword(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(password, instance.getPassword());
     }
 
     /**
@@ -127,11 +120,10 @@ public class LoginManagerTest {
     public void testGetErrorMessage() {
         System.out.println("getErrorMessage");
         LoginManager instance = new LoginManager();
-        String expResult = "";
+        intance.setErrorMessage("bbb");
+        String expResult = "bbb";
         String result = instance.getErrorMessage();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -140,11 +132,10 @@ public class LoginManagerTest {
     @Test
     public void testSetErrorMessage() {
         System.out.println("setErrorMessage");
-        String errorMessage = "";
+        String errorMessage = "bbb";
         LoginManager instance = new LoginManager();
         instance.setErrorMessage(errorMessage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getErrorMessage(), errorMessage);
     }
 
     /**
@@ -154,17 +145,23 @@ public class LoginManagerTest {
     public void testLoginUser() {
         System.out.println("loginUser");
         LoginManager instance = new LoginManager();
-        String expResult = "";
+        instance.setUsername("valid_USERNAME");
+        instance.setPasswrod("valid_PASSWORD");
+        String expResult = "Profile";
         String result = instance.loginUser();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance = new LoginManager();
+        instance2.setUsername("nonvalid_USERNAME");
+        instance2.setPasswrod("nonvalid_PASSWORD");
+        expResult = "Invalid username or password!";
+        result = instance2.loginUser();
+        assertEquals(expResult, result);
     }
 
     /**
      * Test of initializeSessionMap method, of class LoginManager.
      */
-    @Test
+    /**@Test
     public void testInitializeSessionMap() {
         System.out.println("initializeSessionMap");
         User user = null;
@@ -172,6 +169,6 @@ public class LoginManagerTest {
         instance.initializeSessionMap(user);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }
