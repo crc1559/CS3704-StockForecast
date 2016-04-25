@@ -224,7 +224,7 @@ public class UserTest {
         boolean expResult = false;
         boolean result = instance.equals(object);
         assertEquals(expResult, result);
-        User instance2 = new User(1, "f", "g", "gh);
+        User instance2 = new User(1, "f", "g", "gh");
         result = instance.equals(instance2);
         expResult = true;
         assertEquals(expResult, result)
