@@ -5,7 +5,7 @@
  */
 package com.CS3704.managers;
 
-import com.CS3704.entitypackage.User;
+import com.CS3704.manager.LoginManager;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -46,7 +46,7 @@ public class LoginManagerTest {
     public void testGetUsername() {
         System.out.println("getUsername");
         LoginManager instance = new LoginManager();
-        lm1.setUsername("_USERNAME");
+        instance.setUsername("_USERNAME");
         String expResult = "_USERNAME";
         String result = instance.getUsername();
         assertEquals(expResult, result);
